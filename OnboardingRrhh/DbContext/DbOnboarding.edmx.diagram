@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6780139398d546ef8b5cc4c72b4220c1" Name="Diagram1">
+        <EntityTypeShape EntityType="DbOnboardingModel.ORTAsignacionRecurso" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOnboardingModel.ORTColaborador" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOnboardingModel.ORTDepartamento" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOnboardingModel.ORTEstadoSkill" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOnboardingModel.ORTEstadoWill" Width="1.5" PointX="10.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOnboardingModel.ORTEvaluacion" Width="1.5" PointX="7.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOnboardingModel.ORTOnboarding" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOnboardingModel.ORTPlaza" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOnboardingModel.ORTRamaSkill" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOnboardingModel.ORTRecurso" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOnboardingModel.ORTSkill" Width="1.5" PointX="7.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOnboardingModel.ORTSkillEvaluacion" Width="1.5" PointX="9.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOnboardingModel.ORTWill" Width="1.5" PointX="10.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbOnboardingModel.ORTWillEvaluacion" Width="1.5" PointX="12.75" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="DbOnboardingModel.FK_ORTAsignacionRecurso_ORTOnboarding" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOnboardingModel.FK_ORTAsignacionRecurso_ORTRecurso" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOnboardingModel.FK_ORTOnboarding_ORTColaborador" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOnboardingModel.FK_ORTPlaza_ORTDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOnboardingModel.FK_ORTSkillEvaluacion_ORTEstadoSkill" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOnboardingModel.FK_ORTWillEvaluacion_ORTEstadoWill" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOnboardingModel.FK_ORTEvaluacion_ORTOnboarding" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOnboardingModel.FK_ORTSkillEvaluacion_ORTEvaluacion" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOnboardingModel.FK_ORTWillEvaluacion_ORTEvaluacion" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOnboardingModel.FK_ORTOnboarding_ORTPlaza" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOnboardingModel.FK_ORTSkill_ORTRamaSkill" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOnboardingModel.FK_ORTSkillEvaluacion_ORTSkill" ManuallyRouted="false" />
+        <AssociationConnector Association="DbOnboardingModel.FK_ORTWillEvaluacion_ORTWill" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

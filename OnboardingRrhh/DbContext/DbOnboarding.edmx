@@ -1,0 +1,1123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DbOnboardingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ORTAsignacionRecurso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRecurso" Type="int" Nullable="false" />
+          <Property Name="IdOnboarding" Type="int" Nullable="false" />
+          <Property Name="FechaCumplimiento" Type="datetime" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="int" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTColaborador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="int" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTDepartamento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="int" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTEstadoSkill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Representacion" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="int" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTEstadoWill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Representacion" Type="int" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="int" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTEvaluacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdOnboarding" Type="int" Nullable="false" />
+          <Property Name="NumeroEvaluacion" Type="int" Nullable="false" />
+          <Property Name="FechaPropuesta" Type="datetime" Nullable="false" />
+          <Property Name="FechaEvaluacion" Type="datetime" />
+          <Property Name="PuntuacionSkill" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="PuntuacionWill" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="PuntuacionTotal" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="PuntosFuertes" Type="nvarchar(max)" />
+          <Property Name="PuntosDesarrollar" Type="nvarchar(max)" />
+          <Property Name="ComentariosEvaluador" Type="nvarchar(max)" />
+          <Property Name="ComentariosEvaluado" Type="nvarchar(max)" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="int" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTOnboarding">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPlaza" Type="int" Nullable="false" />
+          <Property Name="IdColaborador" Type="int" Nullable="false" />
+          <Property Name="IdEstadoOnboarding" Type="int" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="int" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTPlaza">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Nivel" Type="int" Nullable="false" />
+          <Property Name="JefeInmediato" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IdDepartamento" Type="int" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="int" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTRamaSkill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="int" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTRecurso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Responsable" Type="nvarchar" MaxLength="50" />
+          <Property Name="PorDefecto" Type="bit" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="int" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTSkill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IdRamaSkill" Type="int" Nullable="false" />
+          <Property Name="PorDefecto" Type="bit" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="int" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTSkillEvaluacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEvaluacion" Type="int" Nullable="false" />
+          <Property Name="IdSkill" Type="int" Nullable="false" />
+          <Property Name="IdEstadoSkill" Type="int" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="int" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTWill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Will" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Peso" Type="int" Nullable="false" />
+          <Property Name="PorDefecto" Type="bit" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="int" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTWillEvaluacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEvaluacion" Type="int" />
+          <Property Name="IdWill" Type="int" />
+          <Property Name="IdEstadoWill" Type="int" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="int" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="UsuarioModificacion" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ORTAsignacionRecurso_ORTOnboarding">
+          <End Role="ORTOnboarding" Type="Self.ORTOnboarding" Multiplicity="1" />
+          <End Role="ORTAsignacionRecurso" Type="Self.ORTAsignacionRecurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTOnboarding">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTAsignacionRecurso">
+              <PropertyRef Name="IdOnboarding" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTAsignacionRecurso_ORTRecurso">
+          <End Role="ORTRecurso" Type="Self.ORTRecurso" Multiplicity="1" />
+          <End Role="ORTAsignacionRecurso" Type="Self.ORTAsignacionRecurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTRecurso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTAsignacionRecurso">
+              <PropertyRef Name="IdRecurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTEvaluacion_ORTOnboarding">
+          <End Role="ORTOnboarding" Type="Self.ORTOnboarding" Multiplicity="1" />
+          <End Role="ORTEvaluacion" Type="Self.ORTEvaluacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTOnboarding">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTEvaluacion">
+              <PropertyRef Name="IdOnboarding" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTOnboarding_ORTColaborador">
+          <End Role="ORTColaborador" Type="Self.ORTColaborador" Multiplicity="1" />
+          <End Role="ORTOnboarding" Type="Self.ORTOnboarding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTColaborador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTOnboarding">
+              <PropertyRef Name="IdColaborador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTOnboarding_ORTPlaza">
+          <End Role="ORTPlaza" Type="Self.ORTPlaza" Multiplicity="1" />
+          <End Role="ORTOnboarding" Type="Self.ORTOnboarding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTPlaza">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTOnboarding">
+              <PropertyRef Name="IdPlaza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTPlaza_ORTDepartamento">
+          <End Role="ORTDepartamento" Type="Self.ORTDepartamento" Multiplicity="1" />
+          <End Role="ORTPlaza" Type="Self.ORTPlaza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTDepartamento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTPlaza">
+              <PropertyRef Name="IdDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTSkill_ORTRamaSkill">
+          <End Role="ORTRamaSkill" Type="Self.ORTRamaSkill" Multiplicity="1" />
+          <End Role="ORTSkill" Type="Self.ORTSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTRamaSkill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTSkill">
+              <PropertyRef Name="IdRamaSkill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTSkillEvaluacion_ORTEstadoSkill">
+          <End Role="ORTEstadoSkill" Type="Self.ORTEstadoSkill" Multiplicity="1" />
+          <End Role="ORTSkillEvaluacion" Type="Self.ORTSkillEvaluacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTEstadoSkill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTSkillEvaluacion">
+              <PropertyRef Name="IdEstadoSkill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTSkillEvaluacion_ORTEvaluacion">
+          <End Role="ORTEvaluacion" Type="Self.ORTEvaluacion" Multiplicity="1" />
+          <End Role="ORTSkillEvaluacion" Type="Self.ORTSkillEvaluacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTEvaluacion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTSkillEvaluacion">
+              <PropertyRef Name="IdEvaluacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTSkillEvaluacion_ORTSkill">
+          <End Role="ORTSkill" Type="Self.ORTSkill" Multiplicity="1" />
+          <End Role="ORTSkillEvaluacion" Type="Self.ORTSkillEvaluacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTSkill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTSkillEvaluacion">
+              <PropertyRef Name="IdSkill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTWillEvaluacion_ORTEstadoWill">
+          <End Role="ORTEstadoWill" Type="Self.ORTEstadoWill" Multiplicity="0..1" />
+          <End Role="ORTWillEvaluacion" Type="Self.ORTWillEvaluacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTEstadoWill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTWillEvaluacion">
+              <PropertyRef Name="IdEstadoWill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTWillEvaluacion_ORTEvaluacion">
+          <End Role="ORTEvaluacion" Type="Self.ORTEvaluacion" Multiplicity="0..1" />
+          <End Role="ORTWillEvaluacion" Type="Self.ORTWillEvaluacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTEvaluacion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTWillEvaluacion">
+              <PropertyRef Name="IdEvaluacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTWillEvaluacion_ORTWill">
+          <End Role="ORTWill" Type="Self.ORTWill" Multiplicity="0..1" />
+          <End Role="ORTWillEvaluacion" Type="Self.ORTWillEvaluacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTWill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTWillEvaluacion">
+              <PropertyRef Name="IdWill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbOnboardingModelStoreContainer">
+          <EntitySet Name="ORTAsignacionRecurso" EntityType="Self.ORTAsignacionRecurso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORTColaborador" EntityType="Self.ORTColaborador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORTDepartamento" EntityType="Self.ORTDepartamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORTEstadoSkill" EntityType="Self.ORTEstadoSkill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORTEstadoWill" EntityType="Self.ORTEstadoWill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORTEvaluacion" EntityType="Self.ORTEvaluacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORTOnboarding" EntityType="Self.ORTOnboarding" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORTPlaza" EntityType="Self.ORTPlaza" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORTRamaSkill" EntityType="Self.ORTRamaSkill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORTRecurso" EntityType="Self.ORTRecurso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORTSkill" EntityType="Self.ORTSkill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORTSkillEvaluacion" EntityType="Self.ORTSkillEvaluacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORTWill" EntityType="Self.ORTWill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORTWillEvaluacion" EntityType="Self.ORTWillEvaluacion" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ORTAsignacionRecurso_ORTOnboarding" Association="Self.FK_ORTAsignacionRecurso_ORTOnboarding">
+            <End Role="ORTOnboarding" EntitySet="ORTOnboarding" />
+            <End Role="ORTAsignacionRecurso" EntitySet="ORTAsignacionRecurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTAsignacionRecurso_ORTRecurso" Association="Self.FK_ORTAsignacionRecurso_ORTRecurso">
+            <End Role="ORTRecurso" EntitySet="ORTRecurso" />
+            <End Role="ORTAsignacionRecurso" EntitySet="ORTAsignacionRecurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTEvaluacion_ORTOnboarding" Association="Self.FK_ORTEvaluacion_ORTOnboarding">
+            <End Role="ORTOnboarding" EntitySet="ORTOnboarding" />
+            <End Role="ORTEvaluacion" EntitySet="ORTEvaluacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTOnboarding_ORTColaborador" Association="Self.FK_ORTOnboarding_ORTColaborador">
+            <End Role="ORTColaborador" EntitySet="ORTColaborador" />
+            <End Role="ORTOnboarding" EntitySet="ORTOnboarding" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTOnboarding_ORTPlaza" Association="Self.FK_ORTOnboarding_ORTPlaza">
+            <End Role="ORTPlaza" EntitySet="ORTPlaza" />
+            <End Role="ORTOnboarding" EntitySet="ORTOnboarding" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTPlaza_ORTDepartamento" Association="Self.FK_ORTPlaza_ORTDepartamento">
+            <End Role="ORTDepartamento" EntitySet="ORTDepartamento" />
+            <End Role="ORTPlaza" EntitySet="ORTPlaza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTSkill_ORTRamaSkill" Association="Self.FK_ORTSkill_ORTRamaSkill">
+            <End Role="ORTRamaSkill" EntitySet="ORTRamaSkill" />
+            <End Role="ORTSkill" EntitySet="ORTSkill" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTSkillEvaluacion_ORTEstadoSkill" Association="Self.FK_ORTSkillEvaluacion_ORTEstadoSkill">
+            <End Role="ORTEstadoSkill" EntitySet="ORTEstadoSkill" />
+            <End Role="ORTSkillEvaluacion" EntitySet="ORTSkillEvaluacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTSkillEvaluacion_ORTEvaluacion" Association="Self.FK_ORTSkillEvaluacion_ORTEvaluacion">
+            <End Role="ORTEvaluacion" EntitySet="ORTEvaluacion" />
+            <End Role="ORTSkillEvaluacion" EntitySet="ORTSkillEvaluacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTSkillEvaluacion_ORTSkill" Association="Self.FK_ORTSkillEvaluacion_ORTSkill">
+            <End Role="ORTSkill" EntitySet="ORTSkill" />
+            <End Role="ORTSkillEvaluacion" EntitySet="ORTSkillEvaluacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTWillEvaluacion_ORTEstadoWill" Association="Self.FK_ORTWillEvaluacion_ORTEstadoWill">
+            <End Role="ORTEstadoWill" EntitySet="ORTEstadoWill" />
+            <End Role="ORTWillEvaluacion" EntitySet="ORTWillEvaluacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTWillEvaluacion_ORTEvaluacion" Association="Self.FK_ORTWillEvaluacion_ORTEvaluacion">
+            <End Role="ORTEvaluacion" EntitySet="ORTEvaluacion" />
+            <End Role="ORTWillEvaluacion" EntitySet="ORTWillEvaluacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTWillEvaluacion_ORTWill" Association="Self.FK_ORTWillEvaluacion_ORTWill">
+            <End Role="ORTWill" EntitySet="ORTWill" />
+            <End Role="ORTWillEvaluacion" EntitySet="ORTWillEvaluacion" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbOnboardingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ORTAsignacionRecurso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdRecurso" Type="Int32" Nullable="false" />
+          <Property Name="IdOnboarding" Type="Int32" Nullable="false" />
+          <Property Name="FechaCumplimiento" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ORTOnboarding" Relationship="Self.FK_ORTAsignacionRecurso_ORTOnboarding" FromRole="ORTAsignacionRecurso" ToRole="ORTOnboarding" />
+          <NavigationProperty Name="ORTRecurso" Relationship="Self.FK_ORTAsignacionRecurso_ORTRecurso" FromRole="ORTAsignacionRecurso" ToRole="ORTRecurso" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioCreacion" Type="Int32" Nullable="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTColaborador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ORTOnboarding" Relationship="Self.FK_ORTOnboarding_ORTColaborador" FromRole="ORTColaborador" ToRole="ORTOnboarding" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioCreacion" Type="Int32" Nullable="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTDepartamento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ORTPlaza" Relationship="Self.FK_ORTPlaza_ORTDepartamento" FromRole="ORTDepartamento" ToRole="ORTPlaza" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioCreacion" Type="Int32" Nullable="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTEstadoSkill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Representacion" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="ORTSkillEvaluacion" Relationship="Self.FK_ORTSkillEvaluacion_ORTEstadoSkill" FromRole="ORTEstadoSkill" ToRole="ORTSkillEvaluacion" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioCreacion" Type="Int32" Nullable="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTEstadoWill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Representacion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ORTWillEvaluacion" Relationship="Self.FK_ORTWillEvaluacion_ORTEstadoWill" FromRole="ORTEstadoWill" ToRole="ORTWillEvaluacion" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioCreacion" Type="Int32" Nullable="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTEvaluacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdOnboarding" Type="Int32" Nullable="false" />
+          <Property Name="NumeroEvaluacion" Type="Int32" Nullable="false" />
+          <Property Name="FechaPropuesta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaEvaluacion" Type="DateTime" Precision="3" />
+          <Property Name="PuntuacionSkill" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PuntuacionWill" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PuntuacionTotal" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PuntosFuertes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PuntosDesarrollar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ComentariosEvaluador" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ComentariosEvaluado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ORTOnboarding" Relationship="Self.FK_ORTEvaluacion_ORTOnboarding" FromRole="ORTEvaluacion" ToRole="ORTOnboarding" />
+          <NavigationProperty Name="ORTSkillEvaluacion" Relationship="Self.FK_ORTSkillEvaluacion_ORTEvaluacion" FromRole="ORTEvaluacion" ToRole="ORTSkillEvaluacion" />
+          <NavigationProperty Name="ORTWillEvaluacion" Relationship="Self.FK_ORTWillEvaluacion_ORTEvaluacion" FromRole="ORTEvaluacion" ToRole="ORTWillEvaluacion" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioCreacion" Type="Int32" Nullable="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTOnboarding">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdPlaza" Type="Int32" Nullable="false" />
+          <Property Name="IdColaborador" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ORTAsignacionRecurso" Relationship="Self.FK_ORTAsignacionRecurso_ORTOnboarding" FromRole="ORTOnboarding" ToRole="ORTAsignacionRecurso" />
+          <NavigationProperty Name="ORTColaborador" Relationship="Self.FK_ORTOnboarding_ORTColaborador" FromRole="ORTOnboarding" ToRole="ORTColaborador" />
+          <NavigationProperty Name="ORTEvaluacion" Relationship="Self.FK_ORTEvaluacion_ORTOnboarding" FromRole="ORTOnboarding" ToRole="ORTEvaluacion" />
+          <NavigationProperty Name="ORTPlaza" Relationship="Self.FK_ORTOnboarding_ORTPlaza" FromRole="ORTOnboarding" ToRole="ORTPlaza" />
+          <Property Name="IdEstadoOnboarding" Type="Int32" Nullable="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioCreacion" Type="Int32" Nullable="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTPlaza">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nivel" Type="Int32" Nullable="false" />
+          <Property Name="JefeInmediato" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ORTDepartamento" Relationship="Self.FK_ORTPlaza_ORTDepartamento" FromRole="ORTPlaza" ToRole="ORTDepartamento" />
+          <NavigationProperty Name="ORTOnboarding" Relationship="Self.FK_ORTOnboarding_ORTPlaza" FromRole="ORTPlaza" ToRole="ORTOnboarding" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioCreacion" Type="Int32" Nullable="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTRamaSkill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ORTSkill" Relationship="Self.FK_ORTSkill_ORTRamaSkill" FromRole="ORTRamaSkill" ToRole="ORTSkill" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioCreacion" Type="Int32" Nullable="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTRecurso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PorDefecto" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ORTAsignacionRecurso" Relationship="Self.FK_ORTAsignacionRecurso_ORTRecurso" FromRole="ORTRecurso" ToRole="ORTAsignacionRecurso" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioCreacion" Type="Int32" Nullable="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="Responsable" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ORTSkill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdRamaSkill" Type="Int32" Nullable="false" />
+          <Property Name="PorDefecto" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ORTRamaSkill" Relationship="Self.FK_ORTSkill_ORTRamaSkill" FromRole="ORTSkill" ToRole="ORTRamaSkill" />
+          <NavigationProperty Name="ORTSkillEvaluacion" Relationship="Self.FK_ORTSkillEvaluacion_ORTSkill" FromRole="ORTSkill" ToRole="ORTSkillEvaluacion" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioCreacion" Type="Int32" Nullable="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTSkillEvaluacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdEvaluacion" Type="Int32" Nullable="false" />
+          <Property Name="IdSkill" Type="Int32" Nullable="false" />
+          <Property Name="IdEstadoSkill" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ORTEstadoSkill" Relationship="Self.FK_ORTSkillEvaluacion_ORTEstadoSkill" FromRole="ORTSkillEvaluacion" ToRole="ORTEstadoSkill" />
+          <NavigationProperty Name="ORTEvaluacion" Relationship="Self.FK_ORTSkillEvaluacion_ORTEvaluacion" FromRole="ORTSkillEvaluacion" ToRole="ORTEvaluacion" />
+          <NavigationProperty Name="ORTSkill" Relationship="Self.FK_ORTSkillEvaluacion_ORTSkill" FromRole="ORTSkillEvaluacion" ToRole="ORTSkill" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioCreacion" Type="Int32" Nullable="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTWill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Will" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Peso" Type="Int32" Nullable="false" />
+          <Property Name="PorDefecto" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ORTWillEvaluacion" Relationship="Self.FK_ORTWillEvaluacion_ORTWill" FromRole="ORTWill" ToRole="ORTWillEvaluacion" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioCreacion" Type="Int32" Nullable="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORTWillEvaluacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdEvaluacion" Type="Int32" />
+          <Property Name="IdWill" Type="Int32" />
+          <Property Name="IdEstadoWill" Type="Int32" />
+          <NavigationProperty Name="ORTEstadoWill" Relationship="Self.FK_ORTWillEvaluacion_ORTEstadoWill" FromRole="ORTWillEvaluacion" ToRole="ORTEstadoWill" />
+          <NavigationProperty Name="ORTEvaluacion" Relationship="Self.FK_ORTWillEvaluacion_ORTEvaluacion" FromRole="ORTWillEvaluacion" ToRole="ORTEvaluacion" />
+          <NavigationProperty Name="ORTWill" Relationship="Self.FK_ORTWillEvaluacion_ORTWill" FromRole="ORTWillEvaluacion" ToRole="ORTWill" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioCreacion" Type="Int32" Nullable="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ORTAsignacionRecurso_ORTOnboarding">
+          <End Role="ORTOnboarding" Type="Self.ORTOnboarding" Multiplicity="1" />
+          <End Role="ORTAsignacionRecurso" Type="Self.ORTAsignacionRecurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTOnboarding">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTAsignacionRecurso">
+              <PropertyRef Name="IdOnboarding" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTAsignacionRecurso_ORTRecurso">
+          <End Role="ORTRecurso" Type="Self.ORTRecurso" Multiplicity="1" />
+          <End Role="ORTAsignacionRecurso" Type="Self.ORTAsignacionRecurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTRecurso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTAsignacionRecurso">
+              <PropertyRef Name="IdRecurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTOnboarding_ORTColaborador">
+          <End Role="ORTColaborador" Type="Self.ORTColaborador" Multiplicity="1" />
+          <End Role="ORTOnboarding" Type="Self.ORTOnboarding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTColaborador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTOnboarding">
+              <PropertyRef Name="IdColaborador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTPlaza_ORTDepartamento">
+          <End Role="ORTDepartamento" Type="Self.ORTDepartamento" Multiplicity="1" />
+          <End Role="ORTPlaza" Type="Self.ORTPlaza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTDepartamento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTPlaza">
+              <PropertyRef Name="IdDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTSkillEvaluacion_ORTEstadoSkill">
+          <End Role="ORTEstadoSkill" Type="Self.ORTEstadoSkill" Multiplicity="1" />
+          <End Role="ORTSkillEvaluacion" Type="Self.ORTSkillEvaluacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTEstadoSkill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTSkillEvaluacion">
+              <PropertyRef Name="IdEstadoSkill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTWillEvaluacion_ORTEstadoWill">
+          <End Role="ORTEstadoWill" Type="Self.ORTEstadoWill" Multiplicity="0..1" />
+          <End Role="ORTWillEvaluacion" Type="Self.ORTWillEvaluacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTEstadoWill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTWillEvaluacion">
+              <PropertyRef Name="IdEstadoWill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTEvaluacion_ORTOnboarding">
+          <End Role="ORTOnboarding" Type="Self.ORTOnboarding" Multiplicity="1" />
+          <End Role="ORTEvaluacion" Type="Self.ORTEvaluacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTOnboarding">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTEvaluacion">
+              <PropertyRef Name="IdOnboarding" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTSkillEvaluacion_ORTEvaluacion">
+          <End Role="ORTEvaluacion" Type="Self.ORTEvaluacion" Multiplicity="1" />
+          <End Role="ORTSkillEvaluacion" Type="Self.ORTSkillEvaluacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTEvaluacion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTSkillEvaluacion">
+              <PropertyRef Name="IdEvaluacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTWillEvaluacion_ORTEvaluacion">
+          <End Role="ORTEvaluacion" Type="Self.ORTEvaluacion" Multiplicity="0..1" />
+          <End Role="ORTWillEvaluacion" Type="Self.ORTWillEvaluacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTEvaluacion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTWillEvaluacion">
+              <PropertyRef Name="IdEvaluacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTOnboarding_ORTPlaza">
+          <End Role="ORTPlaza" Type="Self.ORTPlaza" Multiplicity="1" />
+          <End Role="ORTOnboarding" Type="Self.ORTOnboarding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTPlaza">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTOnboarding">
+              <PropertyRef Name="IdPlaza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTSkill_ORTRamaSkill">
+          <End Role="ORTRamaSkill" Type="Self.ORTRamaSkill" Multiplicity="1" />
+          <End Role="ORTSkill" Type="Self.ORTSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTRamaSkill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTSkill">
+              <PropertyRef Name="IdRamaSkill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTSkillEvaluacion_ORTSkill">
+          <End Role="ORTSkill" Type="Self.ORTSkill" Multiplicity="1" />
+          <End Role="ORTSkillEvaluacion" Type="Self.ORTSkillEvaluacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTSkill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTSkillEvaluacion">
+              <PropertyRef Name="IdSkill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORTWillEvaluacion_ORTWill">
+          <End Role="ORTWill" Type="Self.ORTWill" Multiplicity="0..1" />
+          <End Role="ORTWillEvaluacion" Type="Self.ORTWillEvaluacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORTWill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORTWillEvaluacion">
+              <PropertyRef Name="IdWill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbOnboardingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ORTAsignacionRecurso" EntityType="Self.ORTAsignacionRecurso" />
+          <EntitySet Name="ORTColaborador" EntityType="Self.ORTColaborador" />
+          <EntitySet Name="ORTDepartamento" EntityType="Self.ORTDepartamento" />
+          <EntitySet Name="ORTEstadoSkill" EntityType="Self.ORTEstadoSkill" />
+          <EntitySet Name="ORTEstadoWill" EntityType="Self.ORTEstadoWill" />
+          <EntitySet Name="ORTEvaluacion" EntityType="Self.ORTEvaluacion" />
+          <EntitySet Name="ORTOnboarding" EntityType="Self.ORTOnboarding" />
+          <EntitySet Name="ORTPlaza" EntityType="Self.ORTPlaza" />
+          <EntitySet Name="ORTRamaSkill" EntityType="Self.ORTRamaSkill" />
+          <EntitySet Name="ORTRecurso" EntityType="Self.ORTRecurso" />
+          <EntitySet Name="ORTSkill" EntityType="Self.ORTSkill" />
+          <EntitySet Name="ORTSkillEvaluacion" EntityType="Self.ORTSkillEvaluacion" />
+          <EntitySet Name="ORTWill" EntityType="Self.ORTWill" />
+          <EntitySet Name="ORTWillEvaluacion" EntityType="Self.ORTWillEvaluacion" />
+          <AssociationSet Name="FK_ORTAsignacionRecurso_ORTOnboarding" Association="Self.FK_ORTAsignacionRecurso_ORTOnboarding">
+            <End Role="ORTOnboarding" EntitySet="ORTOnboarding" />
+            <End Role="ORTAsignacionRecurso" EntitySet="ORTAsignacionRecurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTAsignacionRecurso_ORTRecurso" Association="Self.FK_ORTAsignacionRecurso_ORTRecurso">
+            <End Role="ORTRecurso" EntitySet="ORTRecurso" />
+            <End Role="ORTAsignacionRecurso" EntitySet="ORTAsignacionRecurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTOnboarding_ORTColaborador" Association="Self.FK_ORTOnboarding_ORTColaborador">
+            <End Role="ORTColaborador" EntitySet="ORTColaborador" />
+            <End Role="ORTOnboarding" EntitySet="ORTOnboarding" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTPlaza_ORTDepartamento" Association="Self.FK_ORTPlaza_ORTDepartamento">
+            <End Role="ORTDepartamento" EntitySet="ORTDepartamento" />
+            <End Role="ORTPlaza" EntitySet="ORTPlaza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTSkillEvaluacion_ORTEstadoSkill" Association="Self.FK_ORTSkillEvaluacion_ORTEstadoSkill">
+            <End Role="ORTEstadoSkill" EntitySet="ORTEstadoSkill" />
+            <End Role="ORTSkillEvaluacion" EntitySet="ORTSkillEvaluacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTWillEvaluacion_ORTEstadoWill" Association="Self.FK_ORTWillEvaluacion_ORTEstadoWill">
+            <End Role="ORTEstadoWill" EntitySet="ORTEstadoWill" />
+            <End Role="ORTWillEvaluacion" EntitySet="ORTWillEvaluacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTEvaluacion_ORTOnboarding" Association="Self.FK_ORTEvaluacion_ORTOnboarding">
+            <End Role="ORTOnboarding" EntitySet="ORTOnboarding" />
+            <End Role="ORTEvaluacion" EntitySet="ORTEvaluacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTSkillEvaluacion_ORTEvaluacion" Association="Self.FK_ORTSkillEvaluacion_ORTEvaluacion">
+            <End Role="ORTEvaluacion" EntitySet="ORTEvaluacion" />
+            <End Role="ORTSkillEvaluacion" EntitySet="ORTSkillEvaluacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTWillEvaluacion_ORTEvaluacion" Association="Self.FK_ORTWillEvaluacion_ORTEvaluacion">
+            <End Role="ORTEvaluacion" EntitySet="ORTEvaluacion" />
+            <End Role="ORTWillEvaluacion" EntitySet="ORTWillEvaluacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTOnboarding_ORTPlaza" Association="Self.FK_ORTOnboarding_ORTPlaza">
+            <End Role="ORTPlaza" EntitySet="ORTPlaza" />
+            <End Role="ORTOnboarding" EntitySet="ORTOnboarding" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTSkill_ORTRamaSkill" Association="Self.FK_ORTSkill_ORTRamaSkill">
+            <End Role="ORTRamaSkill" EntitySet="ORTRamaSkill" />
+            <End Role="ORTSkill" EntitySet="ORTSkill" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTSkillEvaluacion_ORTSkill" Association="Self.FK_ORTSkillEvaluacion_ORTSkill">
+            <End Role="ORTSkill" EntitySet="ORTSkill" />
+            <End Role="ORTSkillEvaluacion" EntitySet="ORTSkillEvaluacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORTWillEvaluacion_ORTWill" Association="Self.FK_ORTWillEvaluacion_ORTWill">
+            <End Role="ORTWill" EntitySet="ORTWill" />
+            <End Role="ORTWillEvaluacion" EntitySet="ORTWillEvaluacion" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbOnboardingModelStoreContainer" CdmEntityContainer="DbOnboardingEntities">
+          <EntitySetMapping Name="ORTAsignacionRecurso">
+            <EntityTypeMapping TypeName="DbOnboardingModel.ORTAsignacionRecurso">
+              <MappingFragment StoreEntitySet="ORTAsignacionRecurso">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdRecurso" ColumnName="IdRecurso" />
+                <ScalarProperty Name="IdOnboarding" ColumnName="IdOnboarding" />
+                <ScalarProperty Name="FechaCumplimiento" ColumnName="FechaCumplimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORTColaborador">
+            <EntityTypeMapping TypeName="DbOnboardingModel.ORTColaborador">
+              <MappingFragment StoreEntitySet="ORTColaborador">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORTDepartamento">
+            <EntityTypeMapping TypeName="DbOnboardingModel.ORTDepartamento">
+              <MappingFragment StoreEntitySet="ORTDepartamento">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORTEstadoSkill">
+            <EntityTypeMapping TypeName="DbOnboardingModel.ORTEstadoSkill">
+              <MappingFragment StoreEntitySet="ORTEstadoSkill">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Representacion" ColumnName="Representacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORTEstadoWill">
+            <EntityTypeMapping TypeName="DbOnboardingModel.ORTEstadoWill">
+              <MappingFragment StoreEntitySet="ORTEstadoWill">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Representacion" ColumnName="Representacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORTEvaluacion">
+            <EntityTypeMapping TypeName="DbOnboardingModel.ORTEvaluacion">
+              <MappingFragment StoreEntitySet="ORTEvaluacion">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdOnboarding" ColumnName="IdOnboarding" />
+                <ScalarProperty Name="NumeroEvaluacion" ColumnName="NumeroEvaluacion" />
+                <ScalarProperty Name="FechaPropuesta" ColumnName="FechaPropuesta" />
+                <ScalarProperty Name="FechaEvaluacion" ColumnName="FechaEvaluacion" />
+                <ScalarProperty Name="PuntuacionSkill" ColumnName="PuntuacionSkill" />
+                <ScalarProperty Name="PuntuacionWill" ColumnName="PuntuacionWill" />
+                <ScalarProperty Name="PuntuacionTotal" ColumnName="PuntuacionTotal" />
+                <ScalarProperty Name="PuntosFuertes" ColumnName="PuntosFuertes" />
+                <ScalarProperty Name="PuntosDesarrollar" ColumnName="PuntosDesarrollar" />
+                <ScalarProperty Name="ComentariosEvaluador" ColumnName="ComentariosEvaluador" />
+                <ScalarProperty Name="ComentariosEvaluado" ColumnName="ComentariosEvaluado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORTOnboarding">
+            <EntityTypeMapping TypeName="DbOnboardingModel.ORTOnboarding">
+              <MappingFragment StoreEntitySet="ORTOnboarding">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="IdEstadoOnboarding" ColumnName="IdEstadoOnboarding" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdPlaza" ColumnName="IdPlaza" />
+                <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORTPlaza">
+            <EntityTypeMapping TypeName="DbOnboardingModel.ORTPlaza">
+              <MappingFragment StoreEntitySet="ORTPlaza">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+                <ScalarProperty Name="JefeInmediato" ColumnName="JefeInmediato" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORTRamaSkill">
+            <EntityTypeMapping TypeName="DbOnboardingModel.ORTRamaSkill">
+              <MappingFragment StoreEntitySet="ORTRamaSkill">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORTRecurso">
+            <EntityTypeMapping TypeName="DbOnboardingModel.ORTRecurso">
+              <MappingFragment StoreEntitySet="ORTRecurso">
+                <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="PorDefecto" ColumnName="PorDefecto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORTSkill">
+            <EntityTypeMapping TypeName="DbOnboardingModel.ORTSkill">
+              <MappingFragment StoreEntitySet="ORTSkill">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdRamaSkill" ColumnName="IdRamaSkill" />
+                <ScalarProperty Name="PorDefecto" ColumnName="PorDefecto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORTSkillEvaluacion">
+            <EntityTypeMapping TypeName="DbOnboardingModel.ORTSkillEvaluacion">
+              <MappingFragment StoreEntitySet="ORTSkillEvaluacion">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdEvaluacion" ColumnName="IdEvaluacion" />
+                <ScalarProperty Name="IdSkill" ColumnName="IdSkill" />
+                <ScalarProperty Name="IdEstadoSkill" ColumnName="IdEstadoSkill" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORTWill">
+            <EntityTypeMapping TypeName="DbOnboardingModel.ORTWill">
+              <MappingFragment StoreEntitySet="ORTWill">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Will" ColumnName="Will" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+                <ScalarProperty Name="PorDefecto" ColumnName="PorDefecto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORTWillEvaluacion">
+            <EntityTypeMapping TypeName="DbOnboardingModel.ORTWillEvaluacion">
+              <MappingFragment StoreEntitySet="ORTWillEvaluacion">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdEvaluacion" ColumnName="IdEvaluacion" />
+                <ScalarProperty Name="IdWill" ColumnName="IdWill" />
+                <ScalarProperty Name="IdEstadoWill" ColumnName="IdEstadoWill" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
